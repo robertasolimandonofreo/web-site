@@ -1,3 +1,3 @@
 #!/bin/bash
-docker stop $(docker ps -aq) && docker rm $(docker ps -aq)
+docker stop $(docker ps -a -q)
 docker system prune -a -f
