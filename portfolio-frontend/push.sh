@@ -1,6 +1,6 @@
 #!/bin/bash
 DOCKER_USERNAME=robertasolimandonofreo
-IMAGE=web-front
+IMAGE=frontend
 if [ -z ${DOCKER_USERNAME} ]; then
     echo "Missing DOCKER_USERNAME variable!"
     exit 1
