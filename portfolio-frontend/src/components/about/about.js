@@ -15,7 +15,7 @@ export default function About() {
       <Zoom>
         <AboutMe>
           <StyledMe>
-            <img src={owner} alt="mariam adedeji" />
+            <img src={owner} alt="Roberta Soliman" />
           </StyledMe>
           <StyledMe>
             <p>

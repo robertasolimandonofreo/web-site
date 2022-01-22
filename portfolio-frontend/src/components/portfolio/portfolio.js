@@ -27,7 +27,7 @@ export default function Portfolio() {
       </StyledDiv>
       <StyledNav>
         <StyledLink to="/">ALL</StyledLink>
-        <StyledLink to="/portfolio/react">REACT</StyledLink>
+        <StyledLink to="/portfolio/react">PROJECTS</StyledLink>
       </StyledNav>
       <Fade bottom cascade>
         <StyledTotal>
@@ -58,7 +58,7 @@ export function EReact() {
         projectImage={stack}
         imageAlt="Stack ELK"
         projectTitle="Stack ELK"
-        projectStack="ELK Stack: Elasticsearch, Logstash e Kibana com docker"
+        projectStack="Elasticsearch, Logstash e Kibana"
         gitHubLink="https://github.com/robertasolimandonofreo/elk-docker.git"
         websiteLink="https://github.com/robertasolimandonofreo/elk-docker.git"
       />
@@ -74,15 +74,15 @@ export function EReact() {
         projectImage={grafana}
         imageAlt="Grafana"
         projectTitle="Grafana"
-        projectStack="Stack Docker que executa Grafana, MYSQL, MYSQL-Exporter, InfluxDB, Telegraf, Node-Exporter, Cadvisor e Black-Exporter"
+        projectStack="Grafana, MYSQL, MYSQL-Exporter, InfluxDB, Telegraf, Node-Exporter, Cadvisor e Black-Exporter"
         gitHubLink="https://github.com/robertasolimandonofreo/grafana-docker"
         websiteLink="https://github.com/robertasolimandonofreo/grafana-docker"
       />
       <CustomFlippy
         projectImage={nginx}
         imageAlt="ECS Terraform Nginx"
-        projectTitle="ECS Terraform Nginx"
-        projectStack="Stack que cria imagem personalizada do nginx, um cluster ECS Fargate, provisiona o Grafana, e também cria uma esteira do Jenkins"
+        projectTitle="Cria imagem personalizada e um cluster ECS Fargate e sobe o grafana e o jenkins"
+        projectStack="Cluster ECS Fargate"
         gitHubLink="https://github.com/robertasolimandonofreo/ecs-terraform-nginx"
         websiteLink="https://github.com/robertasolimandonofreo/ecs-terraform-nginx"
       />
@@ -90,7 +90,7 @@ export function EReact() {
         projectImage={fibonacci}
         imageAlt="Web-Site Fibonacci"
         projectTitle="Web-Site Fibonacci"
-        projectStack="Um Web-Site em react implementado na AWS"
+        projectStack="Site implementado na AWS"
         gitHubLink="https://github.com/robertasolimandonofreo/Fibonacci"
         websiteLink="https://www.fibonaccit.com/"
       />
@@ -98,7 +98,7 @@ export function EReact() {
         projectImage={react}
         imageAlt="Web-Site React"
         projectTitle="Web-Site React"
-        projectStack="Um Web-Site escrito em react de três camadas (front-end, back-end e banco de dados) implantado usando Terraform, Ansible e AWS"
+        projectStack="Site implementado na AWS"
         gitHubLink="https://github.com/robertasolimandonofreo/web-site"
         websiteLink="https://github.com/robertasolimandonofreo/web-site"
       />

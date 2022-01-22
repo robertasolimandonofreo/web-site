@@ -80,9 +80,9 @@ const validateValue = (formValue) => {
 };
 
 const validation = yup.object().shape({
-  name: yup.string().required("input correct name!"),
-  email: yup.string().required("input correct email!"),
-  message: yup.string().required("please input letters!"),
+  name: yup.string().required("nome incorreto!"),
+  email: yup.string().required("email incorreto!"),
+  message: yup.string().required("por favor insira a mensagem!"),
 });
 
 function ContactForm({ onSubmitButton }) {
@@ -100,7 +100,7 @@ function ContactForm({ onSubmitButton }) {
         render={(props) => {
           return (
             <StyleForm>
-              <StyleField name="name" type="text" placeholder="Name" />
+              <StyleField name="name" type="text" placeholder="Nome" />
               <ErrorMessage name="name" component="div" />
               <br />
               <StyleField
@@ -116,12 +116,12 @@ function ContactForm({ onSubmitButton }) {
                 type="text"
                 component="textarea"
                 rows={8}
-                placeholder="Message"
+                placeholder="Mensagem"
               />
               <ErrorMessage name="message" component="div" />
               <br />
               <StyledButton type="submit" id="buttonColor">
-                SUBMIT
+                ENVIAR
               </StyledButton>
             </StyleForm>
           );
