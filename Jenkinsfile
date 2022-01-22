@@ -28,7 +28,7 @@ pipeline {
             steps {
                     sshagent(credentials: ['ssh-ec2']) {
                         sh ''' 
-                        cd web-site/portfolio-frontend
+                        cd web-site
                         chmod +x -R push.sh
                         ./push.sh
                     '''
