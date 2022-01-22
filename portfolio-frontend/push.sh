@@ -21,7 +21,7 @@ build() {
 
 tag() {
     echo "=> Tagging $IMAGE"
-    docker tag webserver $(echo $DOCKER_USERNAME)/$(echo $IMAGE)
+    docker tag $IMAGE $(echo $DOCKER_USERNAME)/$(echo $IMAGE)
     echo "=> Tagged $IMAGE"
 }
 
