@@ -3,19 +3,56 @@ pipeline {
    stages {
         stage('Checkout') {
             steps {
-                    sshagent(['ssh-ec2']) {
-                        sh "rm -rf web-site"
-                        sh "git clone https://github.com/robertasolimandonofreo/web-site.git"
-                        sh "cd web-site"
-                        sh "git pull"
+                    sshagent(credentials: ['ssh-ec2']) {
+                        sh '''
+                        rm -rf web-site
+                        git clone https://github.com/robertasolimandonofreo/web-site.git
+                        cd web-site
+                        git pull 
+                    '''
                     }
                 }                
             }
-        stage('Docker Down') {
+        stage('Docker Stop') {
             steps {
-                    sshagent(['ssh-ec2']) {
-                        sh "chmod +x -R stop.sh"
-                        sh "./push.sh"
+                    sshagent(credentials: ['ssh-ec2']) {
+                        sh ''' 
+                        cd web-site
+                        chmod +x -R stop.sh
+                        sh ./stop.sh
+                    '''
+                    }
+                }                
+            }
+        stage('Build in DockerHub') {
+            steps {
+                    sshagent(credentials: ['ssh-ec2']) {
+                        sh ''' 
+                        cd web-site/portfolio-frontend
+                        chmod +x -R push.sh
+                        ./push.sh
+                    '''
+                    }
+                }                
+            }
+        stage('Deploy') {
+            steps {
+                    sshagent(credentials: ['ssh-ec2']) {
+                        sh ''' 
+                        docker pull robertasolimandonofreo/frontend:latest
+                        docker run -it -p 3000:3000 robertasolimandonofreo/frontend:latest
+                    '''
+                    }
+                }                
+            }
+        stage('Test') {
+            steps {
+                    sshagent(credentials: ['ssh-ec2']) {
+                        sh ''' 
+                            cd web-site
+                            chmod +x -R site.sh
+                            ./site.sh
+                    '''
                     }
                 }                
             }
