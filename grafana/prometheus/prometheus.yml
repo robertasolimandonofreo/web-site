@@ -14,30 +14,21 @@ scrape_configs:
   - job_name: 'prometheus'
     static_configs:
     - targets: ['3.84.163.154:9090']
-  - job_name: 'docker'
-    static_configs:
-      - targets: ['3.84.163.154:9323']
-        labels:
-          instance: 'ec2'
   - job_name: 'node-exporter' 
     static_configs: 
       - targets: ['node-exporter:9100']
-    ec2_sd_configs:
-      - region: us-east-1
         labels:
           instance: 'ec2'
   - job_name: 'cAdvisor' 
     static_configs:
       - targets: ['cadvisor:8080']
-    ec2_sd_configs:
-      - region: us-east-1
         labels:
           instance: 'ec2'
   - job_name: 'grafana'
     scrape_interval: 15s
     scrape_timeout: 5s
     static_configs:
-      - targets: ['3.84.163.154:3000']
+      - targets: ['3.84.163.154:3005']
   - job_name: blackbox_http
     metrics_path: /probe
     params:
