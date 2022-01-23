@@ -78,3 +78,38 @@ services:
       - monitoring
       - default
     restart: always
+
+ influx:
+    image: influxdb:1.8
+    container_name: influxdb
+    hostname: influx
+    ports:
+      - "8086:8086/tcp"
+    environment:
+      - INFLUXDB_DB=telegraf
+      - INFLUXDB_USER=telegraf
+      - INFLUXDB_ADMIN_USER=telegraf
+      - INFLUXDB_ADMIN_ENABLED=true
+      - INFLUXDB_ADMIN_PASSWORD=telegraf
+    networks:
+      - monitoring
+      - default
+    restart: always
+    volumes:
+      - "./influx/etc/influxdb:/etc/influxdb"
+      - "./influx/var/lib/influxdb:/var/lib/influxdb"
+ telegraf:
+    container_name: telegraf
+    image: telegraf:latest
+    networks:
+      - monitoring
+      - default
+    volumes:
+      - ./telegraf.conf:/etc/telegraf/telegraf.conf
+      - //var/run/docker.sock:/var/run/docker.sock
+      - /sys:/rootfs/sys:ro
+      - /proc:/rootfs/proc:ro
+      - /etc:/rootfs/etc:ro
+    restart: always
+    links: 
+      - influx:influxdb
