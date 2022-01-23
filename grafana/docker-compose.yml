@@ -1,0 +1,80 @@
+version: "3"
+
+networks:
+  monitoring:
+    internal: true
+services:
+ grafana:
+    build: ./
+    container_name: grafana
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GF_SECURITY_ADMIN_PASSWORD}
+      - GF_SECURITY_ADMIN_USER=${GF_SECURITY_ADMIN_USER}
+    ports:
+      - "3005:3000"
+    networks:
+      - monitoring
+      - default
+    restart: always
+
+ prometheus:
+    build: ./prometheus
+    container_name: prometheus
+    ports:
+      - 9090:9090
+    networks:
+      - monitoring
+      - default
+    depends_on:
+      - cadvisor
+    restart: always
+
+ node-exporter:
+    build: ./node
+    container_name: nodeexporter
+    ports:
+      - "9101:9100"
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    command:
+      - '--path.procfs=/host/proc'
+      - '--path.rootfs=/rootfs'
+      - '--path.sysfs=/host/sys'
+      - '--collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($$|/)'
+    networks:
+      - monitoring
+      - default
+    restart: always
+
+ cadvisor:
+    image: google/cadvisor:latest
+    container_name: cadvisor
+    privileged: true
+    devices:
+      - /dev/kmsg:/dev/kmsg
+    ports:
+      - 8080:8080
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker:/var/lib/docker:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /cgroup:/sys/fs/cgroup:ro
+      - /dev/disk/:/dev/disk:ro
+    networks:
+      - monitoring
+      - default
+    restart: always
+
+ black-exporter:
+    image: prom/blackbox-exporter:latest
+    container_name: black-exporter
+    ports:
+      - 9115:9115
+    networks:
+      - monitoring
+      - default
+    restart: always

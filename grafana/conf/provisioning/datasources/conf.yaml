@@ -1,0 +1,21 @@
+# # config file version
+apiVersion: 1
+
+datasources:
+  - name: CloudWatch
+    type: cloudwatch
+    jsonData:
+      authType: keys
+      defaultRegion: us-east-1
+    secureJsonData:
+      accessKey: 
+      secretKey:
+    editable: true
+
+  - name: Prometheus
+    type: prometheus
+    httpMethod: POST
+    url: http://3.84.163.154:9090
+    jsonData:
+      timeInterval: 10s
+    editable: true
