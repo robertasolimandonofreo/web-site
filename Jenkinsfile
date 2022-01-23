@@ -11,7 +11,7 @@ pipeline {
                 '''
             }
         }
-        stage('Docker Down') {
+        stage('Docker Stop') {
             steps {
                 sh '''
                         cd web-site
