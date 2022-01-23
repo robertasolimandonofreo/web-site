@@ -19,3 +19,12 @@ datasources:
     jsonData:
       timeInterval: 10s
     editable: true
+
+  - name: Telegraf
+    type: influxdb
+    access: proxy
+    database: telegraf
+    user: telegraf
+    url: http://influxdb:8086
+    secureJsonData:
+      password: telegraf
