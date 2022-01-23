@@ -45,7 +45,7 @@ scrape_configs:
       target_label: __address__
     static_configs:
     - targets:
-      - http://3.84.163.154:3005/metrics
+      - http://3.84.163.154:9999
   - job_name: blackbox_https
     scrape_timeout: 15s
     scrape_interval: 15s
@@ -63,3 +63,8 @@ scrape_configs:
       target_label: instance
     - target_label: __address__
       replacement: 3.84.163.154:9115	
+  - job_name: 'jenkins'
+    metrics_path: /prometheus
+    scheme: http
+    static_configs:
+      - targets: ['3.84.163.154:9999']
