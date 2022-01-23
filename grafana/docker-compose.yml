@@ -8,9 +8,7 @@ services:
     build: ./
     container_name: grafana
     environment:
-      - GF_SECURITY_ADMIN_PASSWORD=${GF_SECURITY_ADMIN_PASSWORD}
-      - GF_SECURITY_ADMIN_USER=${GF_SECURITY_ADMIN_USER}
-      - GF_INSTALL_PLUGINS=${GF_INSTALL_PLUGINS}
+      - GF_INSTALL_PLUGINS=btplc-trend-box-panel,grafana-worldmap-panel,smartmakers-trafficlight-panel,flant-statusmap-panel,vonage-status-panel,corpglory-progresslist-panel,ryantxu-ajax-panel,ddurieux-glpi-app,grafana-clock-panel,grafana-piechart-panel
     ports:
       - "3005:3000"
     networks:
