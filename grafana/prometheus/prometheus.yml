@@ -45,9 +45,7 @@ scrape_configs:
       target_label: __address__
     static_configs:
     - targets:
-      - http://node-exporter:9100/metrics
       - http://3.84.163.154:3005/metrics
-      - http://cadvisor:8080/metrics
   - job_name: blackbox_https
     scrape_timeout: 15s
     scrape_interval: 15s
