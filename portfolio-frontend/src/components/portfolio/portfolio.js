@@ -1,7 +1,7 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import stack from "./images/stack.png";
-import jenkins from "./images/jenk.jpg";
+import jenkins from "./images/jenk.png";
 import grafana from "./images/graf.png";
 import nginx from "./images/nginx.png";
 import Fade from "react-reveal/Fade";
@@ -74,15 +74,15 @@ export function EReact() {
         projectImage={grafana}
         imageAlt="Grafana"
         projectTitle="Grafana"
-        projectStack="Grafana, MYSQL, MYSQL-Exporter, InfluxDB, Telegraf, Node-Exporter, Cadvisor e Black-Exporter"
+        projectStack="Grafana, MySQL, MySQL-Exporter, InfluxDB, Telegraf, Node-Exporter, Cadvisor e Black-Exporter"
         gitHubLink="https://github.com/robertasolimandonofreo/grafana-docker"
         websiteLink="https://github.com/robertasolimandonofreo/grafana-docker"
       />
       <CustomFlippy
         projectImage={nginx}
         imageAlt="ECS Terraform Nginx"
-        projectTitle="Cria imagem personalizada e um cluster ECS Fargate e sobe o grafana e o jenkins"
-        projectStack="Cluster ECS Fargate"
+        projectTitle="Cluster ECS Fargate"
+        projectStack="Cria imagem personalizada e um cluster ECS Fargate e sobe o grafana e o jenkins"
         gitHubLink="https://github.com/robertasolimandonofreo/ecs-terraform-nginx"
         websiteLink="https://github.com/robertasolimandonofreo/ecs-terraform-nginx"
       />
