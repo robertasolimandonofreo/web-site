@@ -13,7 +13,7 @@ import {
 } from "./styles";
 import "../../App.css";
 
-const contactUrl = "http://54.173.152.70:4000/api/contact";
+const contactUrl = "http://3.84.163.154:4000/api/contact";
 
 const initialValue = {
   name: "",

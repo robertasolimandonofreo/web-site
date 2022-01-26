@@ -15,7 +15,7 @@ error() {
 
 build() {
     echo "=> Building $IMAGE"
-    docker build -t $IMAGE .
+    docker build -t $IMAGE . --no-cache
     echo "=> Built $IMAGE"
 }
 
