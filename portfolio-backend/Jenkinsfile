@@ -1,0 +1,39 @@
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                sh '''
+                        rm -rf web-site
+                        git clone https://github.com/robertasolimandonofreo/web-site.git
+                        cd web-site
+                        git pull 
+                '''
+            }
+        }
+        stage('Docker Stop') {
+            steps {
+                sh '''
+                        cd web-site
+                        docker stop backend
+                        docker system prune -a -f
+                '''
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh '''
+                        docker pull robertasolimandonofreo/backend:latest
+                        docker run -d --name backend -p 4000:4000 robertasolimandonofreo/backend:latest
+                '''
+            }
+        }
+        stage('Test') {
+            steps {
+                sh '''
+                            curl -I "http://3.84.163.154:4000/"
+                '''
+            }
+        }
+    }
+}
