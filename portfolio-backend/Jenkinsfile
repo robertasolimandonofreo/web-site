@@ -28,12 +28,5 @@ pipeline {
                 '''
             }
         }
-        stage('Test') {
-            steps {
-                sh '''
-                            curl -I "http://3.84.163.154:4000/"
-                '''
-            }
-        }
     }
 }
