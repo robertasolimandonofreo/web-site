@@ -15,7 +15,7 @@ datasources:
   - name: Prometheus
     type: prometheus
     httpMethod: POST
-    url: http://3.236.242.86:9090
+    url: http://34.203.203.38:9090
     jsonData:
       timeInterval: 10s
     editable: true

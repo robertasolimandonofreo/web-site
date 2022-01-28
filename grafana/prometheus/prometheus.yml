@@ -113,4 +113,4 @@ scrape_configs:
     metrics_path: /prometheus
     scheme: http
     static_configs:
-      - targets: ['34.203.203.38:9999']
+      - targets: ['3.84.92.59:8080']
