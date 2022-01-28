@@ -27,10 +27,11 @@ export default function About() {
               tendências do mercado. Sou formada em Redes de Computadores
               e atualmente curso pós-graduação em Projetos e arquiteturas em cloud computing
               e também possuo certificados no FIAP e na Mackenzie na área de DevOps.
-              Atualmente, exerço a profissão de DevOps Specialist
-              e também sou professora particular. Em 2019, criei minha empresa, 
-              https://www.fibonaccit.com/, que é uma consultoria de TI que fornece 
-              diversos projetos.{" "}
+              Atualmente, exerço a profissão de DevOps Specialist & Cloud Analyst.
+              Em 2019, criei minha empresa, <a href="https://www.fibonaccit.com/" target="_blank">Fibonacci</a>, 
+              que é uma consultoria de TI que fornece 
+              diversos projetos, principalmente focado em Web Designer,
+              Monitoring, DevOps e consultoria especializada.{" "}
             </p>
           </StyledMe>
         </AboutMe>
