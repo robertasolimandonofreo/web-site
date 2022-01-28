@@ -13,7 +13,7 @@ import argocd from "./img/argocd.png";
 import elk from "./img/elk.png";
 import prometheus from "./img/prometheus.png";
 import grafana from "./img/grafana.png";
-import python from "./img/python.jpg";
+import python from "./img/python.png";
 import golang from "./img/golang.png";
 import linux from "./img/linux.png";
 import nginx from "./img/nginx.png";
