@@ -22,7 +22,7 @@ export default function Portfolio() {
   return (
     <StyledAll id={"portfolio"}>
       <StyledDiv>
-        <h2> PORTFOLIO </h2>
+        <h2> PORTFÓLIO </h2>
         <div></div>
       </StyledDiv>
       <StyledNav>
@@ -100,7 +100,7 @@ export function EReact() {
         projectTitle="Web-Site React"
         projectStack="Site implementado na AWS"
         gitHubLink="https://github.com/robertasolimandonofreo/web-site"
-        websiteLink="https://github.com/robertasolimandonofreo/web-site"
+        websiteLink="https://robertasoliman.tech/"
       />
     </>
   );
