@@ -13,22 +13,68 @@ rule_files:
 scrape_configs:
   - job_name: 'prometheus'
     static_configs:
-    - targets: ['3.84.163.154:9090']
+    - targets: ['3.236.242.86:9090']
   - job_name: 'node-exporter' 
     static_configs: 
-      - targets: ['node-exporter:9100']
+      - targets: ['44.200.145.75:9101']
         labels:
-          instance: 'ec2'
+          instance: 'jenkins'
   - job_name: 'cAdvisor' 
     static_configs:
-      - targets: ['cadvisor:8080']
+      - targets: ['44.200.145.75:8085']
         labels:
-          instance: 'ec2'
+          instance: 'jenkins'
+
+  - job_name: 'node-exporter' 
+    static_configs: 
+      - targets: ['3.236.17.62:9101']
+        labels:
+          instance: 'backend'
+  - job_name: 'cAdvisor' 
+    static_configs:
+      - targets: ['3.236.17.62:8085']
+        labels:
+          instance: 'backend'
+
+  - job_name: 'node-exporter' 
+    static_configs: 
+      - targets: ['18.205.60.93:9101']
+        labels:
+          instance: 'frontend'
+  - job_name: 'cAdvisor' 
+    static_configs:
+      - targets: ['18.205.60.93:8085']
+        labels:
+          instance: 'frontend'
+
+  - job_name: 'node-exporter' 
+    static_configs: 
+      - targets: ['18.206.13.226:9101']
+        labels:
+          instance: 'ELK'
+  - job_name: 'cAdvisor' 
+    static_configs:
+      - targets: ['18.206.13.226:8085']
+        labels:
+          instance: 'ELK'
+
+  - job_name: 'node-exporter' 
+    static_configs: 
+      - targets: ['3.227.234.165:9101']
+        labels:
+          instance: 'DevOps'
+  - job_name: 'cAdvisor' 
+    static_configs:
+      - targets: ['3.227.234.165:8085']
+        labels:
+          instance: 'DevOps'
+
+
   - job_name: 'grafana'
     scrape_interval: 15s
     scrape_timeout: 5s
     static_configs:
-      - targets: ['3.84.163.154:3005']
+      - targets: ['3.236.242.86:3005']
   - job_name: blackbox_http
     metrics_path: /probe
     params:
@@ -41,11 +87,11 @@ scrape_configs:
     - source_labels:
       - __param_target
       target_label: instance
-    - replacement: 3.84.163.154:9115	
+    - replacement: 3.236.242.86:9115	
       target_label: __address__
     static_configs:
     - targets:
-      - http://3.84.163.154:9999
+      - http://3.236.17.62:4000/
   - job_name: blackbox_https
     scrape_timeout: 15s
     scrape_interval: 15s
@@ -62,9 +108,9 @@ scrape_configs:
     - source_labels: [__param_target]
       target_label: instance
     - target_label: __address__
-      replacement: 3.84.163.154:9115	
+      replacement: 3.236.242.86:9115	
   - job_name: 'jenkins'
     metrics_path: /prometheus
     scheme: http
     static_configs:
-      - targets: ['3.84.163.154:9999']
+      - targets: ['3.236.242.86:9999']

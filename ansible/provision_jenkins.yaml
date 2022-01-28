@@ -1,7 +1,7 @@
 ---
 
 - name: Configure Jenkins Server
-  hosts: localhost
+  hosts: jenkins
   tasks:
 
     - name: Install Java Requirements
