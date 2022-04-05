@@ -6,7 +6,7 @@
   tasks:
 
     - name: Check status autoscaling
-      shell: aws autoscaling describe-auto-scaling-instances | grep LifecycleState
+      shell: sudo aws autoscaling describe-auto-scaling-instances | grep LifecycleState
       register: lifecyclestate
     - debug:
         var: lifecyclestate
