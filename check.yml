@@ -6,19 +6,19 @@
   tasks:
 
     - name: Check status autoscaling
-      shell: sudo aws autoscaling describe-auto-scaling-instances | grep LifecycleState
+      shell: sudo /usr/local/bin/aws autoscaling describe-auto-scaling-instances | grep LifecycleState
       register: lifecyclestate
     - debug:
         var: lifecyclestate
 
     - name: Check status target group
-      shell: aws elbv2 describe-target-health --target-group-arn arn:aws:elasticloadbalancing:us-east-1:843734137748:targetgroup/track-nps-hmg/cc8ae322cd5b575b | grep State
+      shell: sudo /usr/local/bin/aws elbv2 describe-target-health --target-group-arn arn:aws:elasticloadbalancing:us-east-1:843734137748:targetgroup/track-nps-hmg/cc8ae322cd5b575b | grep State
       register: state
     - debug:
         var: state
 
     - name: Check status codedeploy
-      shell: aws codepipeline get-pipeline-state --name track-nps-hmg | grep status
+      shell: sudo /usr/local/bin/aws codepipeline get-pipeline-state --name track-nps-hmg | grep status
       register: status
     - debug:
         var: status
